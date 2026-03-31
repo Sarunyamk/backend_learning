@@ -42,4 +42,4 @@ export const MOCK_STOCKS: readonly StockConfig[] = [
     basePrice: 875.3,
     volatility: 0.03,
   },
-] as const;
+];
