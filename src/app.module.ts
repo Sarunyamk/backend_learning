@@ -9,10 +9,17 @@ import { DatabaseModule } from './database/database.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { AuthGuard } from './modules/auth/guards/auth.guard';
 import { RolesGuard } from './modules/auth/guards/role.guard';
+import { SocketModule } from './modules/socket/socket.module';
 import { SecurityModule } from './shared/security/security.module';
 
 @Module({
-  imports: [ConfigModule, DatabaseModule, SecurityModule, AuthModule],
+  imports: [
+    ConfigModule,
+    DatabaseModule,
+    SecurityModule,
+    AuthModule,
+    SocketModule,
+  ],
   providers: [
     {
       provide: APP_GUARD,

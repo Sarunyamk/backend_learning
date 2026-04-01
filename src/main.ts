@@ -3,6 +3,7 @@ import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module';
 import { GlobalValidationPipe } from './common/pipes/global-validation.pipe';
+import { SocketIoAdapter } from './config/socket-io.adapter';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -26,6 +27,7 @@ async function bootstrap() {
   });
 
   app.useGlobalPipes(new GlobalValidationPipe());
+  app.useWebSocketAdapter(new SocketIoAdapter(app));
 
   if (process.env.NODE_ENV !== 'production') {
     const config = new DocumentBuilder()
